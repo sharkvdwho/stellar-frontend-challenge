@@ -63,11 +63,81 @@ export class StellarHelper {
       }
 
       this.publicKey = address;
+      // Save to localStorage for persistence
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('stellar_wallet_address', address);
+        localStorage.setItem('stellar_wallet_connected', 'true');
+      }
       return address;
     } catch (error: any) {
       console.error('Wallet connection error:', error);
       throw new Error('Wallet bağlantısı başarısız: ' + error.message);
     }
+  }
+
+  async restoreConnection(): Promise<string | null> {
+    try {
+      if (typeof window === 'undefined') {
+        return null;
+      }
+
+      const savedAddress = localStorage.getItem('stellar_wallet_address');
+      const isConnected = localStorage.getItem('stellar_wallet_connected') === 'true';
+
+      if (!savedAddress || !isConnected) {
+        return null;
+      }
+
+      // Restore the address from localStorage
+      // We'll verify it's still valid when actually using it (e.g., signing transactions)
+      this.publicKey = savedAddress;
+      
+      // Optionally try to verify with kit (but don't fail if it doesn't work)
+      try {
+        const { address } = await this.kit.getAddress();
+        if (address && address === savedAddress) {
+          // Address matches, connection is valid
+          return savedAddress;
+        } else if (address) {
+          // Address changed, update saved state
+          this.publicKey = address;
+          localStorage.setItem('stellar_wallet_address', address);
+          return address;
+        }
+      } catch (error) {
+        // If we can't verify, still restore from localStorage
+        // The connection will be verified when actually needed
+        console.log('Could not verify wallet connection, restoring from cache:', error);
+      }
+
+      return savedAddress;
+    } catch (error: any) {
+      console.error('Restore connection error:', error);
+      this.clearSavedConnection();
+      return null;
+    }
+  }
+
+  getSavedAddress(): string | null {
+    if (typeof window === 'undefined') {
+      return null;
+    }
+    return localStorage.getItem('stellar_wallet_address');
+  }
+
+  isSavedConnection(): boolean {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+    return localStorage.getItem('stellar_wallet_connected') === 'true';
+  }
+
+  clearSavedConnection(): void {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('stellar_wallet_address');
+      localStorage.removeItem('stellar_wallet_connected');
+    }
+    this.publicKey = null;
   }
 
   async getBalance(publicKey: string): Promise<{
@@ -185,6 +255,7 @@ export class StellarHelper {
 
   disconnect() {
     this.publicKey = null;
+    this.clearSavedConnection();
     return true;
   }
 }

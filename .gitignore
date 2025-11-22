@@ -31,3 +31,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# rust
+/target/
+**/*.rs.bk
+Cargo.lock
+*.wasm
+
+# server
+/server/node_modules/
+/server/dist/
+/server/data/
+/server/data/*.json
+/server/data/*.db
+/server/.env
+/server/*.log

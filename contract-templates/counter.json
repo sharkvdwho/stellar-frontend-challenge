@@ -1,0 +1,58 @@
+{
+  "id": "counter",
+  "name": "Counter Contract",
+  "description": "A simple counter contract with increment, decrement, and get operations",
+  "version": "1.0.0",
+  "category": "basic",
+  "author": "Stellar Community",
+  "contractPath": "contracts/counter",
+  "contractName": "counter",
+  "functions": [
+    {
+      "name": "init",
+      "description": "Initialize the counter to 0",
+      "parameters": [],
+      "returns": "void"
+    },
+    {
+      "name": "increment",
+      "description": "Increment the counter by 1",
+      "parameters": [],
+      "returns": "i32"
+    },
+    {
+      "name": "decrement",
+      "description": "Decrement the counter by 1",
+      "parameters": [],
+      "returns": "i32"
+    },
+    {
+      "name": "get_count",
+      "description": "Get the current counter value",
+      "parameters": [],
+      "returns": "i32"
+    }
+  ],
+  "events": [
+    {
+      "name": "increment",
+      "description": "Emitted when counter is incremented",
+      "data": "new_count: i32"
+    },
+    {
+      "name": "decrement",
+      "description": "Emitted when counter is decremented",
+      "data": "new_count: i32"
+    }
+  ],
+  "features": [
+    "Persistent storage",
+    "Event emission",
+    "Simple state management"
+  ],
+  "tags": ["counter", "state", "basic", "tutorial"],
+  "icon": "🔢",
+  "difficulty": "beginner",
+  "estimatedDeployTime": "30-60 seconds"
+}
+

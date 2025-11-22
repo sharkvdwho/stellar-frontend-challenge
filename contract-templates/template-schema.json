@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contract Template Schema",
+  "type": "object",
+  "required": ["id", "name", "description", "contractPath", "contractName"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the template"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the contract template"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what the contract does"
+    },
+    "version": {
+      "type": "string",
+      "description": "Template version (semver)"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["basic", "intermediate", "advanced", "defi", "nft", "token", "governance"],
+      "description": "Category classification"
+    },
+    "author": {
+      "type": "string",
+      "description": "Template author or organization"
+    },
+    "contractPath": {
+      "type": "string",
+      "description": "Path to contract source directory relative to project root"
+    },
+    "contractName": {
+      "type": "string",
+      "description": "Name of the contract (used for WASM file name)"
+    },
+    "functions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "parameters": { "type": "array" },
+          "returns": { "type": "string" }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "data": { "type": "string" }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "icon": {
+      "type": "string",
+      "description": "Emoji or icon identifier"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"],
+      "description": "Difficulty level"
+    },
+    "estimatedDeployTime": {
+      "type": "string",
+      "description": "Estimated deployment time"
+    }
+  }
+}
+

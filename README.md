@@ -1,90 +1,259 @@
-# 🌟 Stellar Frontend Starter Template
+# 🚀 AstroDeploy - Smart Contract Deployment & Analytics Platform
 
-> **Build beautiful payment dashboards on Stellar blockchain - Focus only on UI/UX!**
+> **One-click deployment and real-time analytics for Soroban smart contracts on Stellar**
 
-All blockchain logic is already implemented with [Stellar Wallets Kit](https://github.com/Creit-Tech/Stellar-Wallets-Kit). Your job is to create an amazing user experience.
+AstroDeploy is a full-stack platform that simplifies the deployment, monitoring, and analysis of Soroban smart contracts on the Stellar network. Built with Next.js, Express.js, and Rust, it provides a seamless experience from contract selection to deployment and analytics.
 
 [![Stellar](https://img.shields.io/badge/Stellar-Testnet-blue)](https://stellar.org)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8)](https://tailwindcss.com)
+[![Soroban](https://img.shields.io/badge/Soroban-Smart%20Contracts-purple)](https://soroban.stellar.org)
 
-## 🎯 What's This?
+---
 
-This is a **starter template** for building Stellar payment dashboards. Perfect for:
-- 🎓 Learning Stellar blockchain development
-- 🚀 Building your first blockchain app
-- 💼 Creating payment interfaces quickly
-- 🏆 Participating in hackathons
+## 📋 Table of Contents
 
-**No blockchain knowledge required!** All the complex blockchain logic is abstracted away in `lib/stellar-helper.ts` (DO NOT MODIFY). You only need to focus on creating beautiful UI/UX.
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Architecture](#-architecture)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [Key Features](#-key-features)
+- [API Endpoints](#-api-endpoints)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
 
 ---
 
 ## ✨ Features
 
-### ✅ Already Implemented (Ready to Use!)
+### 🎯 Core Functionality
 
-- **Wallet Connection** - Connect with multiple Stellar wallets (Freighter, xBull, Albedo, etc.)
-- **Balance Display** - View XLM balance with auto-refresh
-- **Send Payments** - Send XLM with form validation
-- **Transaction History** - View recent transactions with links to explorer
-- **Responsive Design** - Mobile-friendly base components
-- **Loading States** - Skeletons and spinners
-- **Error Handling** - User-friendly error messages
-- **TypeScript** - Full type safety
+- **One-Click Deployment** - Deploy Soroban contracts with automatic compilation
+- **Contract Templates** - Browse and deploy from a library of pre-built contract templates
+- **Real-Time Analytics** - Monitor contract activity with live statistics and charts
+- **Code Audit** - Automated security checks and code quality analysis before deployment
+- **Transaction Tracking** - View detailed transaction history and event logs
+- **Wallet Integration** - Connect with Stellar wallets (Freighter, xBull, etc.)
+- **Multi-Contract Management** - Track and manage multiple deployed contracts
 
-### 🎨 Bonus Features (Add These for Extra Credit!)
+### 🔒 Security & Quality
 
-All components are in `components/BonusFeatures.tsx` with TODO comments:
+- **Pre-deployment Validation** - Security checks and code quality analysis
+- **Fee Estimation** - Know deployment costs before deploying
+- **Network Status** - Real-time network connectivity and latency monitoring
+- **Access Control** - Secure wallet-based authentication
 
-- [ ] **Dark/Light Mode** (10 points) - Theme toggle
-- [ ] **Copy Address** (5 points) - Already in WalletConnection!
-- [ ] **QR Code** (10 points) - Generate QR for addresses
-- [ ] **Balance Chart** (15 points) - Visualize balance history
-- [ ] **Search Transactions** (10 points) - Filter transaction history
-- [ ] **Multiple Assets** (15 points) - Support for other Stellar assets
-- [ ] **Animations** (10 points) - Smooth transitions
-- [ ] **Mobile Responsive** (10 points) - Perfect mobile experience
-- [ ] **Transaction Confirmations** (10 points) - Confirm before sending
-- [ ] **Address Book** (15 points) - Save frequent addresses
+### 📊 Analytics & Monitoring
+
+- **Statistics Dashboard** - Total transactions, events, average fees, last activity
+- **Interactive Charts** - Visualize transaction trends and event patterns
+- **Activity Timeline** - Chronological view of contract interactions
+- **Event Logs** - Detailed event emission tracking
+- **Auto-Refresh** - Real-time updates every 10 seconds
 
 ---
 
-## 🚀 Quick Start
+## 📸 Screenshots
 
-### Prerequisites
+### Dashboard Overview
+
+![Dashboard](./screenshots/dashboard.png)
+
+The main dashboard provides an overview of all deployed contracts with key statistics and recent activity.
+
+### Deployment Interface
+
+![Deployment](./screenshots/deployment.png)
+
+One-click contract deployment with code audit, security checks, and fee estimation.
+
+### Code Audit & Security
+
+![Code Audit](./screenshots/code-audit.png)
+
+Automated security vulnerability scanning and code quality analysis before deployment.
+
+### Contract Analytics
+
+![Analytics](./screenshots/analytics.png)
+
+Real-time contract analytics with interactive charts, transaction history, and event logs.
+
+### Contract Templates
+
+![Templates](./screenshots/templates.png)
+
+Browse and deploy from a library of pre-built contract templates with detailed information.
+
+### My Contracts
+
+![My Contracts](./screenshots/my-contracts.png)
+
+Manage all your deployed contracts in one place with quick access to analytics.
+
+---
+
+## 🏗️ Architecture
+
+AstroDeploy consists of three main components:
+
+### 1. **Frontend** (Next.js 14 + TypeScript)
+- React-based UI with App Router
+- Tailwind CSS for styling
+- Client-side state management with localStorage
+- Real-time data visualization with Recharts
+
+### 2. **Backend** (Express.js + TypeScript)
+- RESTful API for contract operations
+- Shell command execution for Soroban CLI
+- JSON-based database for deployment tracking
+- Integration with Stellar Horizon API and Soroban RPC
+
+### 3. **Smart Contracts** (Rust + Soroban SDK)
+- Soroban smart contracts in `contracts/` directory
+- Automatic compilation to WASM
+- Template-based contract structure
+
+---
+
+## 📦 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+### Required
 
 - **Node.js 18+** - [Download](https://nodejs.org/)
-- **A Stellar Wallet** - Install one of these:
-  - [Freighter](https://freighter.app) (Recommended)
-  - [xBull](https://xbull.app)
-  - [Lobstr](https://lobstr.co)
-  - Or any other [supported wallet](https://github.com/Creit-Tech/Stellar-Wallets-Kit#compatible-wallets)
+- **npm** or **yarn** - Package manager
+- **Rust 1.70+** - [Install Rust](https://rustup.rs/)
+- **soroban-cli** - Soroban command-line tool (see [Installation](#installation))
 
-### Installation
+### Optional
+
+- **Stellar Wallet** - [Freighter](https://freighter.app) (recommended) or [xBull](https://xbull.app)
+- **Git** - For cloning the repository
+
+---
+
+## 🚀 Installation
+
+### Step 1: Clone the Repository
 
 ```bash
-# Clone the repository
 git clone <your-repo-url>
 cd stellar-frontend-challenge
+```
 
-# Install dependencies
+### Step 2: Install Frontend Dependencies
+
+```bash
+# Install frontend dependencies
 npm install
+```
 
-# Start development server
+### Step 3: Install Backend Dependencies
+
+```bash
+# Navigate to server directory
+cd server
+npm install
+cd ..
+```
+
+### Step 4: Install Rust and Soroban CLI
+
+#### Install Rust
+
+```bash
+# Install Rust using rustup
+curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Reload your shell configuration
+source ~/.cargo/env
+```
+
+#### Add WASM Target
+
+```bash
+# Add the wasm32 target for Soroban contracts
+rustup target add wasm32-unknown-unknown
+```
+
+#### Install Soroban CLI
+
+```bash
+# Install soroban-cli using Cargo
+cargo install --locked soroban-cli
+
+# Verify installation
+soroban --version
+```
+
+> **Note**: This may take 10-30 minutes as it compiles from source. See [INSTALL_SOROBAN.md](./INSTALL_SOROBAN.md) for detailed instructions.
+
+### Step 5: Verify Installation
+
+```bash
+# Check Rust version
+rustc --version
+
+# Check Cargo version
+cargo --version
+
+# Check Soroban CLI
+soroban --version
+
+# Verify wasm32 target
+rustup target list --installed | grep wasm32-unknown-unknown
+```
+
+---
+
+## 🎬 Getting Started
+
+### Starting the Backend Server
+
+1. **Navigate to server directory:**
+
+```bash
+cd server
+```
+
+2. **Start the development server:**
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+The backend server will start on `http://localhost:3001`
 
-### Get Testnet XLM
+> **Note**: Make sure `soroban-cli` is installed and in your PATH. The server will automatically detect it in `$HOME/.cargo/bin`.
 
-1. Connect your wallet
-2. Copy your address
-3. Visit [Stellar Laboratory](https://laboratory.stellar.org/#account-creator?network=test)
-4. Paste your address and click "Fund"
-5. Refresh your balance!
+### Starting the Frontend
+
+1. **Open a new terminal** (keep the backend running)
+
+2. **Navigate to project root:**
+
+```bash
+cd /path/to/stellar-frontend-challenge
+```
+
+3. **Start the Next.js development server:**
+
+```bash
+npm run dev
+```
+
+The frontend will start on `http://localhost:3000`
+
+### Access the Application
+
+Open your browser and navigate to:
+- **Frontend**: [http://localhost:3000](http://localhost:3000)
+- **Backend API**: [http://localhost:3001](http://localhost:3001)
 
 ---
 
@@ -92,241 +261,303 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ```
 stellar-frontend-challenge/
-├── app/
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Main dashboard page
-├── components/
-│   ├── WalletConnection.tsx    # Wallet connect/disconnect
-│   ├── BalanceDisplay.tsx      # Show XLM balance
-│   ├── PaymentForm.tsx         # Send payment form
-│   ├── TransactionHistory.tsx  # Transaction list
-│   ├── BonusFeatures.tsx       # Bonus feature templates
-│   └── example-components.tsx  # Reusable UI components
-├── lib/
-│   └── stellar-helper.ts    # ⚠️ DO NOT MODIFY - Blockchain logic
-└── package.json
+├── app/                          # Next.js App Router pages
+│   ├── page.tsx                  # Main dashboard
+│   ├── deploy/                   # Deployment interface
+│   │   └── page.tsx
+│   ├── my-contracts/             # Contract management
+│   │   └── page.tsx
+│   ├── templates/                # Contract templates
+│   │   └── page.tsx
+│   └── contract-analytics/       # Analytics dashboard
+│       └── [contractId]/
+│           └── page.tsx
+├── components/                   # React components
+│   ├── Navbar.tsx                # Shared navigation
+│   ├── StatsChart.tsx            # Chart components
+│   ├── EventList.tsx             # Event display
+│   └── ActivityTimeline.tsx     # Timeline component
+├── lib/                          # Utility libraries
+│   ├── api.ts                    # API client
+│   ├── storage.ts                # localStorage helpers
+│   ├── templates.ts              # Template loader
+│   ├── useWallet.ts              # Wallet hook
+│   └── stellar-helper.ts         # Stellar SDK wrapper
+├── server/                       # Backend Express server
+│   ├── src/
+│   │   ├── index.ts              # Server entry point
+│   │   ├── routes/               # API routes
+│   │   │   ├── deploy.ts        # Deployment endpoint
+│   │   │   └── stats.ts         # Analytics endpoint
+│   │   ├── services/            # Business logic
+│   │   │   ├── compile.ts       # Contract compilation
+│   │   │   └── deploy.ts        # Contract deployment
+│   │   ├── stellar/             # Stellar integration
+│   │   │   ├── fetchTransactions.ts
+│   │   │   ├── fetchEvents.ts
+│   │   │   └── computeStats.ts
+│   │   └── db.ts                # JSON database
+│   └── package.json
+├── contracts/                    # Soroban smart contracts
+│   ├── counter/                  # Counter contract example
+│   │   ├── Cargo.toml
+│   │   └── src/lib.rs
+│   ├── token/                    # Token contract
+│   ├── nft/                      # NFT contract
+│   └── ...                       # More contracts
+├── contract-templates/           # Contract template definitions
+│   ├── counter.json
+│   └── template-schema.json
+└── package.json                 # Frontend dependencies
 ```
 
 ---
 
-## 🎨 Customization Guide
+## 🔑 Key Features
 
-### 1. Modify Existing Components
+### 1. Contract Deployment
 
-All components are in `components/` folder. They're well-commented and easy to customize:
+- **Template Selection**: Choose from pre-built contract templates
+- **Automatic Compilation**: Contracts are compiled to WASM automatically
+- **Network Selection**: Deploy to Testnet or Mainnet
+- **Deployment Tracking**: All deployments saved to localStorage
 
-```tsx
-// Example: Change payment form layout in PaymentForm.tsx
-<div className="space-y-4">
-  <Input label="Recipient" ... />
-  <Input label="Amount" ... />
-  // Add your custom fields here!
-</div>
+### 2. Code Audit & Security
+
+- **Security Checks**: Automated vulnerability scanning
+  - Reentrancy protection
+  - Integer overflow/underflow checks
+  - Access control validation
+  - Input validation
+- **Code Quality**: Structure and best practices analysis
+- **Fee Estimation**: Know costs before deploying
+- **Network Status**: Real-time connectivity monitoring
+
+### 3. Contract Analytics
+
+- **Statistics Dashboard**: 
+  - Total transactions
+  - Total events
+  - Average fees
+  - Last activity timestamp
+- **Interactive Charts**: 
+  - Transaction trends over time
+  - Event distribution
+- **Activity Timeline**: Chronological view of all interactions
+- **Event Logs**: Detailed event emission tracking
+
+### 4. Contract Management
+
+- **My Contracts**: View all deployed contracts
+- **Quick Access**: Direct links to analytics
+- **Transaction Counts**: Track activity per contract
+- **Local Storage**: Persistent contract tracking
+
+---
+
+## 🔌 API Endpoints
+
+### Deployment
+
+- `POST /api/deploy` - Deploy a contract
+  ```json
+  {
+    "contractPath": "contracts/counter",
+    "contractName": "counter",
+    "network": "testnet",
+    "deployerSecret": "S..."
+  }
+  ```
+
+### Analytics
+
+- `GET /api/stats/:contractId` - Get contract statistics
+- `GET /api/contracts` - List all deployments
+- `GET /api/contracts/:id` - Get specific contract details
+
+---
+
+## 🛠️ Development
+
+### Frontend Development
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Run linter
+npm run lint
 ```
 
-### 2. Change Colors & Theme
+### Backend Development
 
-Edit `app/globals.css` or Tailwind classes:
+```bash
+cd server
 
-```tsx
-// Change gradient colors in page.tsx
-<div className="bg-gradient-to-br from-blue-500 to-purple-600">
-  // Change these colors to match your brand!
-</div>
+# Start development server with hot reload
+npm run dev
+
+# Build TypeScript
+npm run build
+
+# Start production server
+npm start
+
+# Type check
+npm run type-check
 ```
 
-### 3. Add Bonus Features
+### Contract Development
 
-Check `components/BonusFeatures.tsx` for ready-to-use templates:
+```bash
+# Navigate to contract directory
+cd contracts/counter
 
-```tsx
-import { ThemeToggle, AddressQRCode } from '@/components/BonusFeatures';
+# Build contract
+soroban contract build
 
-// Use in your page
-<ThemeToggle />
-<AddressQRCode address={publicKey} />
-```
-
-### 4. Use Example Components
-
-Ready-made components in `example-components.tsx`:
-
-```tsx
-import { Card, Button, Input, Alert } from './example-components';
-
-<Card title="My Feature">
-  <Input label="Name" ... />
-  <Button onClick={...}>Submit</Button>
-</Card>
+# Test contract (if tests exist)
+cargo test
 ```
 
 ---
 
-## 🛠️ Using the Stellar Helper
+## 🐛 Troubleshooting
 
-All blockchain operations are in `lib/stellar-helper.ts`. **DO NOT MODIFY THIS FILE!**
+### Backend Issues
 
-### Available Methods:
+#### `soroban: not found`
 
-```typescript
-import { stellar } from '@/lib/stellar-helper';
+**Problem**: Soroban CLI is not installed or not in PATH.
 
-// Connect wallet (opens Stellar Wallets Kit modal)
-const address = await stellar.connectWallet();
+**Solution**:
+1. Install soroban-cli: `cargo install --locked soroban-cli`
+2. Add to PATH: `export PATH="$HOME/.cargo/bin:$PATH"`
+3. Restart the backend server
 
-// Get balance
-const { xlm, assets } = await stellar.getBalance(address);
+See [INSTALL_SOROBAN.md](./INSTALL_SOROBAN.md) for detailed instructions.
 
-// Send payment
-const result = await stellar.sendPayment({
-  from: senderAddress,
-  to: recipientAddress,
-  amount: "10.5",
-  memo: "Payment for services"
-});
+#### Contract compilation fails
 
-// Get transaction history
-const transactions = await stellar.getRecentTransactions(address, 10);
+**Problem**: Contract directory not found or compilation errors.
 
-// Get explorer link
-const link = stellar.getExplorerLink(txHash, 'tx');
+**Solution**:
+1. Verify contract exists in `contracts/` directory
+2. Check `Cargo.toml` is present
+3. Ensure Rust and wasm32 target are installed
+4. Check server logs for detailed error messages
 
-// Format address (shorten)
-const short = stellar.formatAddress(address, 4, 4); // "GABC...XYZ"
+#### Port already in use
 
-// Disconnect
-stellar.disconnect();
+**Problem**: Port 3001 is already in use.
+
+**Solution**:
+```bash
+# Find process using port 3001
+lsof -i :3001
+
+# Kill the process or change port in server/src/index.ts
 ```
 
----
+### Frontend Issues
 
-## 🎓 Learning Resources
+#### `Failed to fetch` error
 
-### Stellar Blockchain
-- [Stellar Docs](https://developers.stellar.org/)
-- [Stellar Laboratory](https://laboratory.stellar.org/)
-- [Stellar Expert](https://stellar.expert/explorer/testnet) (Blockchain Explorer)
+**Problem**: Backend server is not running.
 
-### Stellar Wallets Kit
-- [GitHub Repository](https://github.com/Creit-Tech/Stellar-Wallets-Kit)
-- [Documentation](https://stellarwalletskit.dev/)
+**Solution**:
+1. Ensure backend is running on `http://localhost:3001`
+2. Check CORS settings in backend
+3. Verify API URL in `lib/api.ts`
 
-### Frontend Technologies
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-- [React Icons](https://react-icons.github.io/react-icons/)
+#### Wallet connection fails
 
----
+**Problem**: Wallet extension not installed or not connected.
 
-## 📊 Evaluation Criteria (If Using as Challenge)
+**Solution**:
+1. Install a Stellar wallet (Freighter recommended)
+2. Create or import a testnet account
+3. Refresh the page and try again
 
-### UI/UX Design (40%)
-- Visual appeal and modern design
-- User-friendly interface
-- Consistent styling
-- Good use of colors and typography
-- Responsive layout
+#### Mock data not showing
 
-### Code Quality (30%)
-- Clean, organized code
-- Proper component structure
-- TypeScript usage
-- Comments where needed
-- No console errors
+**Problem**: localStorage might be cleared or mock data not initialized.
 
-### Functionality (30%)
-- All required features work
-- Proper error handling
-- Loading states
-- Edge cases handled
+**Solution**:
+1. Clear localStorage and refresh
+2. Mock data initializes automatically on first load
+3. Check browser console for errors
 
 ---
 
-## 🚫 Important Rules
+## 📚 Additional Documentation
 
-1. **DO NOT** modify `lib/stellar-helper.ts`
-2. **DO NOT** write any blockchain/transaction logic yourself
-3. **DO** focus on making the UI/UX amazing
-4. **DO** use any CSS framework you like (Tailwind is pre-installed)
-5. **DO** add extra features for bonus points
-6. **DO** make it your own - be creative!
+- [INSTALL_SOROBAN.md](./INSTALL_SOROBAN.md) - Detailed Soroban CLI installation
+- [START_SERVER.md](./START_SERVER.md) - Server startup guide
+- [server/DEPLOYMENT_PIPELINE.md](./server/DEPLOYMENT_PIPELINE.md) - Deployment architecture
+- [server/ANALYTICS_ENGINE.md](./server/ANALYTICS_ENGINE.md) - Analytics implementation
+- [CONTRACT_TEMPLATES_ARCHITECTURE.md](./CONTRACT_TEMPLATES_ARCHITECTURE.md) - Template system
 
 ---
 
-## 📦 Tech Stack
+## 🎯 Quick Start Checklist
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Next.js | 14.2.0 | React Framework |
-| TypeScript | 5.4.5 | Type Safety |
-| Tailwind CSS | 3.4.4 | Styling |
-| Stellar SDK | 12.3.0 | Blockchain |
-| Stellar Wallets Kit | 1.9.5 | Multi-Wallet Support |
-| React Icons | 5.0.1 | Icon Library |
+- [ ] Install Node.js 18+
+- [ ] Install Rust and Cargo
+- [ ] Install soroban-cli
+- [ ] Clone repository
+- [ ] Install frontend dependencies (`npm install`)
+- [ ] Install backend dependencies (`cd server && npm install`)
+- [ ] Start backend server (`cd server && npm run dev`)
+- [ ] Start frontend server (`npm run dev`)
+- [ ] Open [http://localhost:3000](http://localhost:3000)
+- [ ] Connect wallet
+- [ ] Deploy your first contract!
 
 ---
 
 ## 🤝 Contributing
 
-This is a starter template! Feel free to:
-- Fork and customize
-- Share your creations
-- Submit improvements via PR
-- Report issues
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 📝 License
 
-MIT License - Feel free to use this for learning, hackathons, or commercial projects!
+MIT License - Feel free to use this project for learning, development, or commercial purposes!
 
 ---
 
-## 💡 Tips for Success
+## 🙏 Acknowledgments
 
-1. **Start Simple** - Get basic features working first
-2. **Test Often** - Use testnet XLM freely
-3. **Read Comments** - All components have helpful comments
-4. **Check Examples** - Look at `example-components.tsx` for inspiration
-5. **Have Fun!** - Building on blockchain is exciting! 🚀
+- [Stellar Development Foundation](https://stellar.org) - For the amazing blockchain platform
+- [Soroban](https://soroban.stellar.org) - Smart contract platform
+- [Stellar Wallets Kit](https://github.com/Creit-Tech/Stellar-Wallets-Kit) - Multi-wallet support
 
 ---
 
-## 🆘 Troubleshooting
+## 💡 Tips
 
-### Wallet won't connect?
-- Make sure you have a Stellar wallet installed
-- Check if you're on Testnet (not Mainnet)
-- Try refreshing the page
-
-### Balance shows 0?
-- Fund your testnet account at [Stellar Laboratory](https://laboratory.stellar.org/#account-creator?network=test)
-- Click the refresh button in BalanceDisplay
-
-### Transaction fails?
-- Check if you have enough XLM (keep at least 1 XLM as reserve)
-- Verify the recipient address is valid
-- Make sure you're on Testnet
-
-### Build errors?
-```bash
-# Clear cache and reinstall
-rm -rf node_modules package-lock.json
-npm install
-```
-
----
-
-## 🌟 Show Your Work!
-
-Built something cool with this template? Share it!
-- Tweet with #StellarDevelopers
-- Share in [Stellar Discord](https://discord.gg/stellardev)
-- Submit to [Stellar Community](https://stellar.org/community)
+1. **Use Testnet**: Always test on Stellar Testnet before deploying to Mainnet
+2. **Get Testnet XLM**: Use [Stellar Laboratory](https://laboratory.stellar.org/#account-creator?network=test) to fund testnet accounts
+3. **Check Logs**: Both frontend and backend logs provide helpful debugging information
+4. **Start Simple**: Begin with the Counter contract template
+5. **Explore Templates**: Check out different contract templates to understand patterns
 
 ---
 
 **Made with ❤️ for the Stellar Community**
 
-Happy Building! 🚀✨
+Happy Deploying! 🚀✨

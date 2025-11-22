@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Stellar Payment Dashboard',
-  description: 'Build a beautiful payment dashboard on Stellar blockchain',
+  title: 'AstroDeploy - Smart Contract Platform',
+  description: 'Auto-deploy and analyze Soroban smart contracts on Stellar blockchain',
 };
 
 export default function RootLayout({

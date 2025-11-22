@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Build output
+dist
+
+# Data files (will be mounted as volume)
+data/*.db
+data/*.json
+
+# Environment files
+.env
+.env.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+!README.md
+
+# IDE
+.vscode
+.idea
+
