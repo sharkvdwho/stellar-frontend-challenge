@@ -56,43 +56,33 @@ AstroDeploy is a full-stack platform that simplifies the deployment, monitoring,
 
 ---
 
-## 📸 Screenshots
 
-### Dashboard Overview
+![Dashboard](./screenshots/Screenshot1.png)
 
-![Dashboard](./screenshots/dashboard.png)
 
-The main dashboard provides an overview of all deployed contracts with key statistics and recent activity.
 
-### Deployment Interface
+![Deployment](./screenshots/Screenshot2.png)
 
-![Deployment](./screenshots/deployment.png)
 
-One-click contract deployment with code audit, security checks, and fee estimation.
 
-### Code Audit & Security
+![Code Audit](./screenshots/Screenshot3.png)
 
-![Code Audit](./screenshots/code-audit.png)
 
-Automated security vulnerability scanning and code quality analysis before deployment.
 
-### Contract Analytics
+![Analytics](./screenshots/Screenshot4.png)
 
-![Analytics](./screenshots/analytics.png)
 
-Real-time contract analytics with interactive charts, transaction history, and event logs.
 
-### Contract Templates
+![Templates](./screenshots/Screenshot5.png)
 
-![Templates](./screenshots/templates.png)
 
-Browse and deploy from a library of pre-built contract templates with detailed information.
 
-### My Contracts
+![My Contracts](./screenshots/Screenshot6.png)
 
-![My Contracts](./screenshots/my-contracts.png)
 
-Manage all your deployed contracts in one place with quick access to analytics.
+
+![Additional Features](./screenshots/Screenshot7.png)
+
 
 ---
 
