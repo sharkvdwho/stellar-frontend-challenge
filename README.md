@@ -56,6 +56,8 @@ AstroDeploy is a full-stack platform that simplifies the deployment, monitoring,
 
 ---
 
+![Wallet](./screenshots/Screenshot8.png)
+
 
 ![Dashboard](./screenshots/Screenshot1.png)
 
